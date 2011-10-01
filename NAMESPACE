@@ -1,0 +1,3 @@
+useDynLib(survC1)
+
+exportPattern("^[^\\.]")

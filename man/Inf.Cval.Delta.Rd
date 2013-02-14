@@ -6,7 +6,7 @@
 \description{
 Performes the inference for the difference in C between two competing risk prediction models}
 \usage{
-Inf.Cval.Delta(mydata, covs0, covs1, tau, itr = 1000, seed = 1201)
+Inf.Cval.Delta(mydata, covs0, covs1, tau, itr = 1000, seed = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -21,7 +21,7 @@ Input data. The 1st column should be time-to-event, and the 2nd column is event 
 }
   \item{itr}{Iteration of perturbation-resampling. 
 }
-  \item{seed}{A seed for generating random numbers for the resampling
+  \item{seed}{A seed for generating random numbers for the resampling. The default is NULL.
 }
 }
 \details{

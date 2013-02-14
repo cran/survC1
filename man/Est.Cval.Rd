@@ -6,7 +6,7 @@
 Performs a point estimation of C
 }
 \usage{
-Est.Cval(mydata, tau)
+Est.Cval(mydata, tau, nofit=FALSE)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -14,6 +14,8 @@ Est.Cval(mydata, tau)
 Input data. The 1st column should be time-to-event, and the 2nd column is event indicator (1=event, 0=censor). The rest of the columns are covariates/predictors used in the model. No character variable or missing is allowed. 
 }
   \item{tau}{Truncation time. The resulting C tells how well the given prediction model works in predicting events that occur in the time range from 0 to \code{tau}. Note that the survival function for the underlying censoring time distribution needs to be positive at \code{tau}. 
+}
+  \item{nofit}{If \code{TRUE}, the 3rd column of \code{mydata} is used as the risk score directly in calculation of C. The default is \code{FALSE}.
 }
 }
 \details{

@@ -3,10 +3,11 @@
 
 #######################################################
 # Function: Est.Cval: return point estimte
-#           ver.002 --- 2011.2.15 --  can handle ties 
-#           ver.003 --- 2011.9.21 --  FORTRAN (conc)
+#           ver.002  --- 2011.2.15 --  can handle ties 
+#           ver.003  --- 2011.9.21 --  FORTRAN (conc)
+#           ver.003b --- 2013.2.13 --  add nofit option
 #######################################################
-Est.Cval<-function(mydata, tau){
+Est.Cval<-function(mydata, tau, nofit=FALSE){
 
     ## =============== ##
     ## Weight          ##
@@ -15,32 +16,56 @@ Est.Cval<-function(mydata, tau){
     GXi<-cens$surv[match(mydata[,1], cens$distinct, nomatch=1)]
     Wi<-1/GXi/GXi*mydata[,2]*as.numeric(mydata[,1]<tau) 
 
-    ## =============== ##
-    ## Fit Cox         ##
-    ## =============== ##
-    fit.cox <- Est.PH(mydata)
-    rs=as.vector(fit.cox$rs)
+    ## ======================== ##
+    ## Fit Cox if nofit==FALSE  ##
+    ## ======================== ##
 
+    if(nofit){
+       rs = mydata[,3]
+    }else{
+       fit.cox <- Est.PH(mydata)
+       rs=as.vector(fit.cox$rs)
+    }
+ 
     ## =============== ##
     ## C-stat (D hat)  ##
     ## =============== ##
     cstat=conc(mydata[,1],mydata[,2],Wi,rs)
     
-    return(list(Dhat=cstat, beta=fit.cox$beta, 
-                beta.var=fit.cox$var, rs=fit.cox$rs, Ui=fit.cox$Ui, 
-                cens.surv=cens$surv, cens.psii=cens$psii, 
-                distinct=cens$distinct, wt=Wi, ft=fit.cox$ft))
+    ## =============== ##
+    ## OUTPUT          ##
+    ## =============== ##
+    Z=list()
+    Z$Dhat=cstat
+    Z$rs=rs
+    if(nofit==FALSE){
+     Z$beta=fit.cox$beta
+     Z$beta.var=fit.cox$var
+     Z$rs=fit.cox$rs
+     Z$Ui=fit.cox$Ui 
+     Z$ft=fit.cox$ft
+    }
+    Z$cens.surv=cens$surv
+    Z$cens.psii=cens$psii 
+    Z$distinct=cens$distinct
+    Z$wt=Wi
+    Z$nofit=nofit
+
+    return(Z)
+
 }
 
 
 
 #######################################################
 # Function: Inf.Cval: give CI
-#           ver.003 --- 2011.9.21 --  FORTRAN (conc, unoU2P)
+#     ver.003 --- 2011.9.21 --  FORTRAN (conc, unoU2P)
+#     ver.003b -- 2013.2.13 --  seed = null (default)
 #######################################################
-Inf.Cval<-function(mydata, tau, itr=1000, seed=1201){
+Inf.Cval<-function(mydata, tau, itr=1000, seed=NULL){
 
-	set.seed(seed)
+	if(!is.null(seed)) {set.seed(seed)}
+	
 	emp<-Est.Cval(mydata, tau)
 	n<-nrow(mydata); p<-ncol(mydata)-2 ; 
 
@@ -97,14 +122,16 @@ Inf.Cval<-function(mydata, tau, itr=1000, seed=1201){
 
 #######################################################
 # Function: Inf.Cval.Delta: give Delta C and its CI
+#     ver.003b -- 2013.2.13 --  seed = null (default)
 #######################################################
-Inf.Cval.Delta<-function(mydata, covs0, covs1, tau, itr=1000, seed=1201){
+Inf.Cval.Delta<-function(mydata, covs0, covs1, tau, itr=1000, seed=NULL){
    
    mydata1=data.frame(mydata, covs1)
    mydata0=data.frame(mydata, covs0)
 
 
-	set.seed(seed)
+	if(!is.null(seed)) {set.seed(seed)}
+
 	n<-nrow(mydata1); p<-ncol(mydata1)-2 ; 
 
 	emp1<-Est.Cval(mydata1, tau)

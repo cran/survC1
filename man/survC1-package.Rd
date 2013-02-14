@@ -10,9 +10,9 @@ Performes inference of overall adequecy of risk prediction models with censored 
 \tabular{ll}{
 Package: \tab survC1\cr
 Type: \tab Package\cr
-Version: \tab 1.0-1\cr
-Date: \tab 2011-10-01\cr
-License: \tab GPL2\cr
+Version: \tab 1.0-2\cr
+Date: \tab 2012-02-14\cr
+License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
 Performs inference for C of risk prediction models with censored survival data, using the method proposed by Uno et al. (2011). Inference for the difference in C between two competing prediction models is also implemented.

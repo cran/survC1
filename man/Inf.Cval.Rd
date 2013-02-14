@@ -7,7 +7,7 @@
 Performes the inference for C
 }
 \usage{
-Inf.Cval(mydata, tau, itr = 1000, seed = 1201)
+Inf.Cval(mydata, tau, itr = 1000, seed = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,7 +18,7 @@ Input data. The 1st column should be time-to-event, and the 2nd column is event 
 }
   \item{itr}{Iteration of perturbation-resampling. 
 }
-  \item{seed}{A seed for generating random numbers for the resampling
+  \item{seed}{A seed for generating random numbers for the resampling. The default is NULL.
 }
 }
 \details{

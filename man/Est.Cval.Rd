@@ -18,9 +18,6 @@ Input data. The 1st column should be time-to-event, and the 2nd column is event 
   \item{nofit}{If \code{TRUE}, the 3rd column of \code{mydata} is used as the risk score directly in calculation of C. The default is \code{FALSE}.
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
 \item{Dhat}{Estimate of C}
 \item{beta}{Estimates for regression coefficient in the Cox model}
@@ -28,21 +25,7 @@ Input data. The 1st column should be time-to-event, and the 2nd column is event 
 \item{rs}{Risk score of each individial}
 \item{ft}{\code{coxph} object with the fitted model}
 }
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
 
 D=CompCase(pbc[1:200,c(2:4,10:14)]) 

@@ -2,7 +2,7 @@
 \alias{survC1-package}
 \alias{survC1}
 \docType{package}
-\title{C-statistics for risk prediction models with censored survival data}
+\title{C-Statistics for Risk Prediction Models with Censored Survival Data}
 \description{
 Performes inference of overall adequecy of risk prediction models with censored survival data. 
 }
@@ -10,8 +10,8 @@ Performes inference of overall adequecy of risk prediction models with censored 
 \tabular{ll}{
 Package: \tab survC1\cr
 Type: \tab Package\cr
-Version: \tab 1.0-2\cr
-Date: \tab 2012-02-14\cr
+Version: \tab 1.0-3\cr
+Date: \tab 2021-02-10\cr
 License: \tab GPL-2\cr
 LazyLoad: \tab yes\cr
 }
@@ -25,7 +25,7 @@ Maintainer: Hajime Uno <huno@jimmy.harvard.edu>
 \references{
 Hajime Uno, Tianxi Cai, Michael J. Pencina, Ralph B. D'Agostino, and LJ Wei. 
 On the C-statistics for evaluating overall adequacy of risk prediction procedures
-with censored survival data. Statistics in Medicine 2011, 30:1105-16. 
+with censored survival data. Statistics in Medicine 2011, 30:1105-16. doi:10.1002/sim.4154
 }
 \keyword{ package }
 \examples{

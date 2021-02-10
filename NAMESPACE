@@ -1,3 +1,6 @@
 useDynLib(survC1)
-
 exportPattern("^[^\\.]")
+import(survival)
+importFrom(stats,rexp)
+importFrom(stats,var)
+importFrom(stats,weighted.mean)

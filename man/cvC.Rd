@@ -21,24 +21,6 @@ The number of fold. A K-fold cross-validation is performed, according to the num
 The number of iteration of the random splits for the K-fold cross-validation. The average of the \code{Rep} times of \code{cvK}-fold cross-validation estimates is provided as a resulting estimate for C.
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
 \examples{
 
 D=CompCase(pbc[,c(2:4,10:14)]) 

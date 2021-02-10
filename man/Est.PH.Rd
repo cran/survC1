@@ -15,29 +15,11 @@ Est.PH(mydata)
 Input data. The 1st column should be time-to-event, and the 2nd column is event indicator (1=event, 0=censor). The rest of the columns are covariates/predictors used in the model. No character variable or missing is allowed. 
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
 \item{beta}{Estimates for regression coefficient in the Cox model}
 \item{var}{Variance-Covariance matrix for the beta above}
 \item{rs}{Risk score of each individual}
 \item{ft}{\code{coxph} object with the fitted model}
-}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
 D=CompCase(pbc[1:200,c(2:4,10:14)]) 

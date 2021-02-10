@@ -24,26 +24,8 @@ Input data. The 1st column should be time-to-event, and the 2nd column is event 
   \item{seed}{A seed for generating random numbers for the resampling. The default is NULL.
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
 \value{
 A 4x3 matrix that consists of point estimates, standard error estiamtes, and lower and upper limits of 0.95 two-sided intervals for C of Model 1, Model 0 and that for the difference of C}
-\references{
-%% ~put references to the literature/web site here ~
-}
-\author{
-%%  ~~who you are~~
-}
-\note{
-%%  ~~further notes~~
-}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
-
-\seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
-}
 \examples{
 
 D=CompCase(pbc[1:200,c(2:4,10:14)]) 
